@@ -10,4 +10,4 @@ catch(PDOException $e) {
     die();
 }
 $_SESSION['cartitems'] = null;
-header("Location: /");
+header("Location: ./");

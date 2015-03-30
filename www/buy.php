@@ -12,7 +12,7 @@ try {
 $cartitems = implode(",", $_SESSION['cartitems']);
 $sth = $dbh->query("SELECT price, cost FROM items WHERE id IN ($cartitems)");
 
-fcoreach ($sth as $row) {
+foreach ($sth as $row) {
     $order_price += $row['price'];
     $order_cost += $row['cost'];
 }
@@ -32,4 +32,4 @@ foreach ($_SESSION['cartitems'] as $item_id) {
 
 $_SESSION['cartitems'] = null;
 
-header("Location: /index.php");
+header("Location: ./index.php");

@@ -2,7 +2,7 @@
 session_start();
 require_once ('../config.php');
 if (!isset($_SESSION['user'])) {
-    header("Location: /login_register.php");
+    header("Location: ./login_register.php");
     die();
 }
 
@@ -47,11 +47,11 @@ foreach ($dbh->query($sql) as $row) {
     <td><?php echo $row['name']; ?></td>
     <td><?php echo $row['description']; ?></td>
     <td><?php echo $row['price']; ?></td>
-    <td align="center"><img src="/images/<?php echo $row[0]; ?>.jpg"></td>
+    <td align="center"><img src="./images/<?php echo $row[0]; ?>.jpg"></td>
 </tr>
 <?php
 }
 ?>
 </table>
-<?php 
+<?php
 print_footer();

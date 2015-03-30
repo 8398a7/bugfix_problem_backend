@@ -4,7 +4,7 @@ require_once ('../config.php');
 print_header();
 ?>
 <div class="container" style="padding:20px 0">
-<form method="post" action="/cartadd.php">
+<form method="post" action="./cartadd.php">
 <h1>最新の商品一覧です！</h1>
 <hr>
 <table class="table table-bordered">
@@ -42,11 +42,13 @@ EOT;
 
 foreach ($dbh->query($sql) as $row) {
     $items[] = $row;
-} 
+}
 
 
 $counter = 0;
 while (true) {
+  # itemsが空ならbreakする
+  if(empty($items)) { break; }
 ?>
 
 <tr>
@@ -55,7 +57,7 @@ while (true) {
     <td><?php echo $items[$counter]['name']; ?></td>
     <td><?php echo $items[$counter]['description']; ?></td>
     <td><?php echo $items[$counter]['price']; ?></td>
-    <td align="center"><img src="/images/<?php echo $items[$counter][0]; ?>.jpg"></td>
+    <td align="center"><img src="./images/<?php echo $items[$counter][0]; ?>.jpg"></td>
     <td align="center"><input type="checkbox" name="cartitems[]" value="<?php echo $items[$counter]['id']; ?>"></td>
 </tr>
 <?php
@@ -67,11 +69,11 @@ break;
 ?>
 </table>
 <center>
-	<input type="submit" name="add items to cart" value="商品を追加する">   
+	<input type="submit" name="add items to cart" value="商品を追加する">
 </center>
 </form>
 </div>
 
-<?php 
+<?php
 print_footer();
 

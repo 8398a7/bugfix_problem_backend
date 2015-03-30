@@ -9,13 +9,14 @@ print_header();
 <p>ぜひ、ゲストブックにメッセージを残していって下さい！サイトについて、買った所品やサイトの完成など何でも構いません。</p>
 <hr>
 
-<form class="form-horizontal" method="post" action="/doguestbook.php">
+<form class="form-horizontal" method="post" action="./doguestbook.php">
   <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">Your Name</label>
     <div class="col-sm-10">
-<?php 
+<?php
 if (isset($_SESSION['user'])) {
     echo '<input type="text" name="name" class="form-control" id="inputName" placeholder="' . $_SESSION['user']['fullname'] . '" disabled>';
+    echo '<input type="hidden" name="name" value="' . $_SESSION['user']['fullname'] . '">';
 } else {
     echo '<input type="text" name="name" class="form-control" id="inputName" placeholder="Your Name">';
 }
@@ -25,9 +26,10 @@ if (isset($_SESSION['user'])) {
   <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
-<?php 
+<?php
 if (isset($_SESSION['user'])) {
     echo '<input type="email" name="email" class="form-control" id="inputEmail" placeholder="' . $_SESSION['user']['email'] . '" disabled>';
+    echo '<input type="hidden" name="email" value="' . $_SESSION['user']['email'] . '">';
 } else {
     echo '<input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">';
 }
@@ -47,5 +49,5 @@ if (isset($_SESSION['user'])) {
   </div>
 </form>
 
-<?php 
+<?php
 print_footer();

@@ -25,7 +25,7 @@ $sth = $dbh->query("SELECT id, name, description, price FROM items WHERE id IN (
         <th>商品名</th>
         <th>説明</th>
         <th>価格</th>
-        <th>画像</th>       
+        <th>画像</th>
     </tr>
 
 <?php
@@ -37,7 +37,7 @@ foreach ($sth as $row) {
     	<td><?php echo $row['description']; ?></td>
     	<td><?php echo $row['price']; ?></td>
     	<td align="center">
-    	<img src="/images/<?php echo $row['id']; ?>.jpg"></img></td>
+    	<img src="./images/<?php echo $row['id']; ?>.jpg"></img></td>
     </tr>
 
 
@@ -47,22 +47,22 @@ foreach ($sth as $row) {
 </table>
 
 <center>
-<?php 
+<?php
 if (isset($_SESSION['user'])) {
 ?>
-    <form method="post" action="/buy.php">
+    <form method="post" action="./buy.php">
         <input class="btn btn-primary" type="submit" value="購入">
     </form>
-<?php    
+<?php
 } else {
 ?>
 <div class="alert alert-warning">
-購入前に<a href="/login_register.php">ログイン</a>してください
+購入前に<a href="./login_register.php">ログイン</a>してください
 </div>
-<?php 
+<?php
 }
 ?>
-    <form method="post" action="/reset.php">
+    <form method="post" action="./reset.php">
         <input class="btn btn-danger" type="submit" value="カートをリセットする">
     </form>
 </center>

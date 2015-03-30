@@ -10,7 +10,7 @@ $_SESSION['loginregister_error'] = '';
 ?>
 <hr>
 <h3>登録</h3>
-<form class="form-horizontal" method="post" action="register.php" >
+<form class="form-horizontal" method="post" action="./register.php" >
   <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">Full Name</label>
     <div class="col-sm-10">
@@ -38,7 +38,7 @@ $_SESSION['loginregister_error'] = '';
 
 <hr>
 <h3>ログイン</h3>
-<form class="form-horizontal" method="get" action="login.php" >
+<form class="form-horizontal" method="get" action="./login.php" >
   <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
@@ -57,5 +57,5 @@ $_SESSION['loginregister_error'] = '';
     </div>
   </div>
 </form>
-<?php 
+<?php
 print_footer();

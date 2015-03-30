@@ -4,8 +4,8 @@ require_once ('../config.php');
 
 $_SESSION['cartitems'] = array();
 if (isset($_POST['ResetItems'])) {
-    header("Location: /whatsnew.php");
-} 
+    header("Location: ./whatsnew.php");
+}
 
 $_SESSION['cartitems'] = $_POST['cartitems'];
-header("Location: /index.php");
+header("Location: ./new_items.php");
